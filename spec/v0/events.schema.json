@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-runtime.local/spec/v0/events.schema.json",
+  "title": "Agent Runtime Event",
+  "type": "object",
+  "required": ["type", "data", "run_id", "sequence", "created_at", "schema_version"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "data": {
+      "type": "object"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "created_at": {
+      "type": "number"
+    },
+    "schema_version": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-runtime.local/spec/v0/run-snapshot.schema.json",
+  "title": "Agent Run Snapshot",
+  "type": "object",
+  "required": ["state", "context"],
+  "properties": {
+    "state": {
+      "$ref": "state.schema.json"
+    },
+    "context": {
+      "$ref": "runtime-context.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

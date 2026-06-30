@@ -1,0 +1,12 @@
+{
+  "name": "final_only",
+  "model_steps": [
+    {
+      "parts": [{ "type": "text", "text": "done" }],
+      "tool_calls": []
+    }
+  ],
+  "expected_status": "completed",
+  "expected_final_text": "done",
+  "expected_tool_calls": 0
+}

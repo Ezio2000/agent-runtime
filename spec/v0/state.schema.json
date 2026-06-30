@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-runtime.local/spec/v0/state.schema.json",
+  "title": "Agent Runtime State",
+  "type": "object",
+  "required": [
+    "status",
+    "messages",
+    "pending_tool_calls",
+    "iterations",
+    "total_tool_calls",
+    "final_parts",
+    "error"
+  ],
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": ["planning", "executing_tools", "completed", "failed", "limit_exceeded"]
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "$ref": "messages.schema.json"
+      }
+    },
+    "pending_tool_calls": {
+      "type": "array",
+      "items": {
+        "$ref": "messages.schema.json#/$defs/tool_call"
+      }
+    },
+    "iterations": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "total_tool_calls": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "final_parts": {
+      "type": "array",
+      "items": {
+        "$ref": "messages.schema.json#/$defs/content_part"
+      }
+    },
+    "error": {
+      "type": ["string", "null"]
+    }
+  },
+  "additionalProperties": true
+}

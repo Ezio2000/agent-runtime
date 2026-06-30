@@ -1,0 +1,36 @@
+{
+  "name": "multi_step_tools",
+  "model_steps": [
+    {
+      "parts": [],
+      "tool_calls": [
+        {
+          "id": "call-1",
+          "name": "echo",
+          "arguments": {
+            "text": "a"
+          }
+        }
+      ]
+    },
+    {
+      "parts": [],
+      "tool_calls": [
+        {
+          "id": "call-2",
+          "name": "echo",
+          "arguments": {
+            "text": "b"
+          }
+        }
+      ]
+    },
+    {
+      "parts": [{ "type": "text", "text": "a b" }],
+      "tool_calls": []
+    }
+  ],
+  "expected_status": "completed",
+  "expected_final_text": "a b",
+  "expected_tool_calls": 2
+}

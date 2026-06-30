@@ -1,0 +1,22 @@
+{
+  "name": "tool_error_recovery",
+  "model_steps": [
+    {
+      "parts": [],
+      "tool_calls": [
+        {
+          "id": "call-1",
+          "name": "fail",
+          "arguments": {}
+        }
+      ]
+    },
+    {
+      "parts": [{ "type": "text", "text": "handled error" }],
+      "tool_calls": []
+    }
+  ],
+  "expected_status": "completed",
+  "expected_final_text": "handled error",
+  "expected_tool_calls": 1
+}

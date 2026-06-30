@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-runtime.local/spec/v0/messages.schema.json",
+  "title": "Agent Runtime Message",
+  "type": "object",
+  "required": ["role", "parts"],
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": ["system", "user", "assistant", "tool"]
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/content_part"
+      }
+    },
+    "tool_call_id": {
+      "type": ["string", "null"]
+    },
+    "tool_calls": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/tool_call"
+      }
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "content_part": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": { "type": "string" },
+        "uri": { "type": "string" },
+        "ref": { "type": "string" },
+        "media_type": { "type": "string" },
+        "name": { "type": "string" },
+        "data": { "type": "object" },
+        "metadata": { "type": "object" }
+      },
+      "additionalProperties": true
+    },
+    "tool_call": {
+      "type": "object",
+      "required": ["id", "name", "arguments"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "arguments": { "type": "object" },
+        "metadata": { "type": "object" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

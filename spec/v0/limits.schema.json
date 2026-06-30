@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-runtime.local/spec/v0/limits.schema.json",
+  "title": "Agent Runtime Loop Limits",
+  "type": "object",
+  "properties": {
+    "max_iterations": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_total_tool_calls": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "timeout_seconds": {
+      "type": ["number", "null"],
+      "exclusiveMinimum": 0
+    },
+    "stop_on_tool_error": {
+      "type": "boolean"
+    },
+    "max_parallel_tool_calls": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Maximum active tool calls in a parallel-safe batch. A value of 1 is serial execution."
+    }
+  },
+  "additionalProperties": true
+}

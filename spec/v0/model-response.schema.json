@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-runtime.local/spec/v0/model-response.schema.json",
+  "title": "Agent Runtime Model Response",
+  "type": "object",
+  "required": ["parts", "tool_calls"],
+  "properties": {
+    "parts": {
+      "type": "array",
+      "items": {
+        "$ref": "messages.schema.json#/$defs/content_part"
+      }
+    },
+    "tool_calls": {
+      "type": "array",
+      "items": {
+        "$ref": "messages.schema.json#/$defs/tool_call"
+      }
+    },
+    "finish_reason": {
+      "type": ["string", "null"]
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,24 @@
+{
+  "name": "one_tool_then_final",
+  "model_steps": [
+    {
+      "parts": [],
+      "tool_calls": [
+        {
+          "id": "call-1",
+          "name": "echo",
+          "arguments": {
+            "text": "hello"
+          }
+        }
+      ]
+    },
+    {
+      "parts": [{ "type": "text", "text": "hello" }],
+      "tool_calls": []
+    }
+  ],
+  "expected_status": "completed",
+  "expected_final_text": "hello",
+  "expected_tool_calls": 1
+}

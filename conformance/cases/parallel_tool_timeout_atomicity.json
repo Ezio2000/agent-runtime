@@ -1,0 +1,42 @@
+{
+  "name": "parallel_tool_timeout_atomicity",
+  "limits": {
+    "timeout_seconds": 0.03,
+    "max_parallel_tool_calls": 3
+  },
+  "model_steps": [
+    {
+      "parts": [],
+      "tool_calls": [
+        {
+          "id": "call-0",
+          "name": "delayed_echo",
+          "arguments": {
+            "text": "0",
+            "delay": 0
+          }
+        },
+        {
+          "id": "call-1",
+          "name": "delayed_echo",
+          "arguments": {
+            "text": "1",
+            "delay": 1
+          }
+        },
+        {
+          "id": "call-2",
+          "name": "delayed_echo",
+          "arguments": {
+            "text": "2",
+            "delay": 0.01
+          }
+        }
+      ]
+    }
+  ],
+  "expected_status": "limit_exceeded",
+  "expected_tool_calls": 0,
+  "expected_tool_texts": [],
+  "forbidden_checkpoint_tool_counts": [1, 2]
+}

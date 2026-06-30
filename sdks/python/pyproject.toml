@@ -1,0 +1,44 @@
+[project]
+name = "agent-runtime"
+version = "0.1.0"
+description = "Lightweight model-neutral agent loop runtime"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "agent-runtime contributors" }]
+dependencies = []
+
+[project.urls]
+Repository = "https://example.invalid/agent-runtime"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+  "pyright>=1.1.407",
+  "pytest>=8.4.0",
+  "pytest-asyncio>=1.2.0",
+  "ruff>=0.14.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.pyright]
+include = ["src", "tests"]
+pythonVersion = "3.11"
+typeCheckingMode = "strict"
+

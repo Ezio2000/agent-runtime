@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agent-runtime.local/spec/v0/runtime-context.schema.json",
+  "title": "Agent Runtime Context",
+  "type": "object",
+  "required": ["run_id", "started_at", "deadline", "metadata", "sequence"],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "started_at": {
+      "type": "number",
+      "description": "Wall-clock epoch seconds when the run context was created."
+    },
+    "deadline": {
+      "type": ["number", "null"],
+      "description": "Wall-clock epoch seconds when the run should expire, or null."
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "additionalProperties": true
+}
